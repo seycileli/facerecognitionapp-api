@@ -29,15 +29,20 @@ app.post('/register', register.handleRegister(knex, bcrypt));
 
 app.get('/profile/:id', profile.handleProfile(knex));
 
-app.put('/image', image.handleImage(knex));
+app.put('/image',
+    (req, res) => {
+    image.handleImage(req, res, knex)});
 
-app.post('./imageurl',
+app.post('/imageurl',
     (req, res) =>
     {image.handleApiCall(req, res)})
 
 app.listen(process.env.PORT || 3000, ()=> {
     console.log(`App is running on port: ${process.env.PORT}`);
 })
+
+bcrypt.hash("bacon", null, null,
+    function (err, hash) { });
 
 /*
     The general structure of our backend:

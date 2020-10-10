@@ -13,6 +13,4 @@ const handleProfile = (knex) => (req, res) => {
         .catch(() => res.status(400).json('error retrieving user'));
 }
 
-module.exports = {
-    handleProfile: handleProfile
-}
+module.exports = {handleProfile}
